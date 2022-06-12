@@ -1,0 +1,52 @@
+
+/* zoom screen */
+.ol-full-screen-false,
+.ol-full-screen-true{
+    padding-bottom: 2px !important;
+}
+
+/* rotate */
+.ol-rotate-reset {
+    margin-top: 2em !important;
+}
+
+/* zoom slider */
+.ol-zoom .ol-zoom-out{
+    margin-top: 200px;
+}
+.ol-zoomslider{
+    background-color: transparent !important;
+    top: 2em !important;
+}
+
+/* custom overviewmap */
+.ol-custom-overviewmap,
+.ol-custom-overviewmap.ol-uncollapsible{
+    bottom: 0 !important;
+    left: auto !important;
+    right: 0 !important;
+    top: auto;
+}
+.ol-custom-overviewmap:not(.ol-collapsed)  {
+    border: 1px solid black;
+  }
+.ol-custom-overviewmap .ol-overviewmap-map {
+    border: none !important;
+    width: 300px !important;
+}
+.ol-custom-overviewmap .ol-overviewmap-box {
+    border: 2px solid red !important;
+    /* have bug of box: rotate map, box will hide a part 
+    cause: *{overflow: hidden} */
+}
+.ol-custom-overviewmap:not(.ol-collapsed) button{
+    bottom: 1px;
+    left: auto;
+    right: 1px;
+    top: auto;
+}
+
+.draw-app {
+    top: 270px;
+    left: .5em;
+}

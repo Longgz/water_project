@@ -1,0 +1,92 @@
+<!-- Start: Modal draw -->
+    <!-- Modal -->
+    <div class="modal fade" id="startDrawModal" tabindex="-1" aria-labelledby="startDrawModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="startDrawModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="opacity: 0.6;">X</button>
+          </div>
+          <div class="modal-body" style="text-align: center;">
+            <!-- start: cards -->
+            <div class="row">
+              <div class="col">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Point</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Route</h6>
+                    <p class="card-text"><i class="fa-solid fa-location-dot fa-2xl"></i></p>
+                    <a href="#" class="card-link" id="Point">Add Point</a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Line</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Road</h6>
+                    <p class="card-text"><i class="fa-solid fa-route fa-2xl"></i></p>
+                    <a href="#" class="card-link" id="LineString">Add Line</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Polygon</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Water</h6>
+                    <p class="card-text"><i class="fa-solid fa-draw-polygon fa-2xl"></i></p>
+                    <a href="#" class="card-link" id="Polygon">Add polygon</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end: cards -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End: Modal draw -->
+
+
+
+    <!-- Start: Enter Information Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="enterInformationModal" tabindex="-1" aria-labelledby="enterInformationModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h5 class="modal-title" id="enterInformationModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="opacity: 0.6;">X</button>
+          </div>
+
+          <div class="modal-body" style="text-align: center;">
+          <!-- start: input info -->
+          <form>
+            <label for="typeOfFeature" class="form-label">Enter Feature's Detail</label>
+            <select class="form-select form-select-lg mb-3 form-control " id="typeOfFeature" aria-label="Default select example">
+              
+            </select>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Name</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="textHelp">
+              <small id="textHelp" class="form-text text-muted">Address, Name, etc.</small>
+            </div>
+          </form>
+          <!-- end: input info -->
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="btn_to_save_info">Save changes</button>
+          </div>
+          
+      </div>
+    </div>
+  <!-- End: Enter Information Modal -->

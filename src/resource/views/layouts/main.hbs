@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!-- boostrap css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.css">
+
+    {{!-- <link rel="stylesheet" href="openlayers/ol.css"> --}}
+    {{!-- <script  src="openlayers/ol.js"></script> --}}
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/ol.css">
+    <link rel="stylesheet" href="style/boostrap.css">
+
+    <link rel="stylesheet" href="v6.14.1-dist/ol.css">
+    <script src="v6.14.1-dist/ol.js"></script> 
+</head>
+<body>
+    <div class="app">
+        {{!-- <header>
+            <h1>Header</h1>
+        </header> --}}
+
+        {{>header}}
+
+        <div id="container">
+            <div id="sidebar">
+                <div id="visible-layer">
+                <h2>Layer</h2>
+                <input type="checkbox" name="baseLayerRadioButton" value="waterVector">Water
+                <br>
+                <input type="checkbox" name="baseLayerRadioButton" value="waterWayVector">Water Way
+                <br>
+                </div>
+            </div>
+            <div id="map"></div>
+        </div>
+
+        <!-- Start: Modal draw -->
+        <!-- Modal -->
+        <div class="modal fade" id="startDrawModal" tabindex="-1" aria-labelledby="startDrawModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="startDrawModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" style="opacity: 0.6;">X</button>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <!-- start: cards -->
+                <div class="row">
+                <div class="col">
+                    <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Point</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Route</h6>
+                        <p class="card-text"><i class="fa-solid fa-location-dot fa-2xl"></i></p>
+                        <a href="#" class="card-link" id="Point">Add Point</a>
+                    </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Line</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Road</h6>
+                        <p class="card-text"><i class="fa-solid fa-route fa-2xl"></i></p>
+                        <a href="#" class="card-link" id="LineString">Add Line</a>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Polygon</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Water</h6>
+                        <p class="card-text"><i class="fa-solid fa-draw-polygon fa-2xl"></i></p>
+                        <a href="#" class="card-link" id="Polygon">Add polygon</a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!-- end: cards -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+        </div>
+        <!-- End: Modal draw -->
+
+        <!-- Start: Enter Information Modal -->
+        <!-- Modal -->
+        <div class="modal fade" id="enterInformationModal" tabindex="-1" aria-labelledby="enterInformationModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form method="post" action="/create">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="enterInformationModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" style="opacity: 0.6;">X</button>
+                        </div>
+
+                        <div class="modal-body" style="text-align: center;">
+                        <!-- start: input info -->
+                        <div method="post" action="./home.hbs">
+                            <label for="typeOfFeature" class="form-label">Enter Feature's Detail</label>
+                            <select class="form-select form-select-lg mb-3 form-control " id="typeOfFeature" aria-label="Default select example">
+                            
+                            </select>
+                            <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="textHelp">
+                            <small id="textHelp" class="form-text text-muted">Address, Name, etc.</small>
+                            </div>
+                        </div>
+                        <!-- end: input info -->
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" id="btn_to_save_info">Save changes</button>
+                        </div>      
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- End: Enter Information Modal -->
+
+        <!-- Start: Pop up -->
+        <div id="popup" class="ol-popup">
+            <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+            <div id="popup-content"></div>
+        </div>
+        <!-- End: Pop up -->
+
+        {{>footer}}
+    </div>
+
+    <script type="module" src="/main.js"></script>
+    <!-- boostrap js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
