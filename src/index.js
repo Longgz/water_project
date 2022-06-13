@@ -19,7 +19,7 @@ app.engine('hbs', handlebars.engine({
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resource/views'));
 
-app.post('/create', (req, res) => {
+app.get('/create', (req, res) => {
     client.query(`Select * from student`, (err, docs) => {
         if(!err) {
           res.json(docs);

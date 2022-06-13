@@ -381,7 +381,6 @@ var featureOverlay = new Vector({
 });
 
 map.on('click', function(evt) {
-  container.classList.remove('ol-popup__hide');
 
   if(featureOverlay) {
       featureOverlay.getSource().clear();
@@ -395,6 +394,7 @@ map.on('click', function(evt) {
   console.log(feature1.get('osm_id'));
 
   if(feature1) {
+
       //gọi đến đối tượng hình học (geometry)
       var geometry = feature1.getGeometry();
       var coord = geometry.getCoordinates();
@@ -403,6 +403,7 @@ map.on('click', function(evt) {
       featureOverlay.getSource().addFeature(feature1);
       //overlays.getLayers().push(featureOverlay);
       if(feature1.get('osm_id') != undefined) {
+        container.classList.remove('ol-popup__hide'); 
         var content1 = '<h3>' + feature1.get('fclass') + '</h3>';
         content1 += '<h5>' + feature1.get('name') + '</h5>';
         // content1 += '<h5>' + feature1.get('photo') + '</h5>';
